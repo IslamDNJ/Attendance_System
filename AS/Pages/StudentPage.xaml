@@ -1,0 +1,52 @@
+﻿<Page x:Class="AS.StudentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AS"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StudentPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50.4"></RowDefinition>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+ 
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="BtnBackClic" Click="BtnBackClic_Click" Margin="20,0, 20, 0">Назад</Button>
+            <Button x:Name="BtnAddClic" Click="BtnAddClic_Click" Margin="0, 0, 20, 0">Добавить</Button>
+            <Button x:Name="BtnDeleteClic" Click="BtnDeleteClic_Click">Удалить</Button>
+        </StackPanel>
+
+
+        <DataGrid Grid.Row="1" 
+                  x:Name="DataGridStudents" 
+                  ColumnWidth="*" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding First_Name}" Width="250"></DataGridTextColumn>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Last_Name}" Width="250"></DataGridTextColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEditClic" Click="BtnEditClic_Click">Отметить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnOpenClic" Click="BtnOpenClic_Click">Открыть</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -1,0 +1,60 @@
+﻿<Page x:Class="AS.Pages.AddVisitedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AS.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddVisitedPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50.4"></RowDefinition>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="BtnBackClic" Click="BtnBackClic_Click" Margin="20,0, 20, 0">Назад</Button>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        >
+
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,0,20"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="Выберите дату:"
+                               Width="100"
+                               VerticalAlignment="Center"/>
+                    <DatePicker Width="175" 
+                                x:Name="DateVisit" 
+                                SelectedDate="{Binding visit.Date}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,0,20"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="Отметить:"
+                               Width="100"
+                               VerticalAlignment="Center"/>
+                    <ComboBox x:Name="VisitCmb" Text="{Binding visit.Visited}" Width="175">
+                        <TextBlock>Присутствовал</TextBlock>
+                        <TextBlock>Отсутствовал</TextBlock>
+                        <TextBlock>Отсутствовал по уважительной причине</TextBlock>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Height="100" VerticalAlignment="Bottom">
+            <Button Content="Изменить" 
+                    HorizontalAlignment="Center"  
+                    Click="ButtonSave_Click" />
+        </StackPanel>
+    </Grid>
+</Page>
